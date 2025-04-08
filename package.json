@@ -1,0 +1,24 @@
+{
+  "name": "datadog-test",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "VITE_GIT_VERSION=$(git rev-parse HEAD) vite",
+    "build": "tsc && vite build",
+    "upload-sourcemaps": "zx ./bin/upload-sourcemaps.mjs",
+    "build:ci": "VITE_GIT_VERSION=$(git rev-parse HEAD) vite build",
+    "postbuild:ci": "npm run upload-sourcemaps",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@datadog/datadog-ci": "3.3.1",
+    "@types/node": "22.14.0",
+    "typescript": "5.8.3",
+    "vite": "6.2.5",
+    "zx": "8.5.0"
+  },
+  "dependencies": {
+    "@datadog/browser-rum": "6.6.3"
+  }
+}
